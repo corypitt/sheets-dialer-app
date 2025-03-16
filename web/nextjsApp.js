@@ -61,6 +61,7 @@ import {
   useSession,
   useSupabaseClient
 } from '@supabase/auth-helpers-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // Initialize the Supabase client (client-side)
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -83,6 +84,7 @@ export default function App({ Component, pageProps }) {
       supabaseClient={supabaseClient}
       initialSession={pageProps.initialSession}
     >
+      <Analytics />
       <AppContent Component={Component} pageProps={pageProps} />
     </SessionContextProvider>
   );
