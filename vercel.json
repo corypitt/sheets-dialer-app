@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "web/nextjsApp.js",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "web/nextjsApp.js"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/sync-sheets",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+} 
